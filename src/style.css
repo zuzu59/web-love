@@ -1,0 +1,236 @@
+:root {
+  font-family: Georgia, 'Times New Roman', serif;
+  color: #fff4f7;
+  background:
+    radial-gradient(circle at top, rgba(255, 203, 219, 0.45), transparent 42%),
+    linear-gradient(160deg, #2b0620 0%, #4a1034 42%, #170611 100%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+button {
+  font: inherit;
+}
+
+#app,
+.scene {
+  min-height: 100vh;
+}
+
+.scene {
+  position: relative;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 50% 25%, rgba(255, 170, 196, 0.18), transparent 24%),
+    radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.08), transparent 18%),
+    radial-gradient(circle at 80% 85%, rgba(255, 255, 255, 0.06), transparent 20%);
+}
+
+.scene.is-active {
+  background:
+    radial-gradient(circle at center, rgba(255, 230, 238, 0.75), rgba(253, 208, 221, 0.24) 28%, rgba(75, 10, 40, 0.96) 100%),
+    linear-gradient(160deg, #ffeff5 0%, #ffd7e4 18%, #6a103d 100%);
+}
+
+.sky,
+.glow,
+.petal-layer {
+  position: absolute;
+  inset: 0;
+}
+
+.sky {
+  background-image:
+    radial-gradient(circle at 15% 25%, rgba(255, 255, 255, 0.14) 0 2px, transparent 3px),
+    radial-gradient(circle at 70% 18%, rgba(255, 255, 255, 0.16) 0 1px, transparent 2px),
+    radial-gradient(circle at 82% 62%, rgba(255, 255, 255, 0.12) 0 2px, transparent 3px),
+    radial-gradient(circle at 34% 78%, rgba(255, 255, 255, 0.12) 0 1px, transparent 2px);
+  opacity: 0.6;
+}
+
+.glow {
+  filter: blur(70px);
+  opacity: 0.6;
+  mix-blend-mode: screen;
+}
+
+.glow-left {
+  inset: auto auto 12% 8%;
+  width: 28vw;
+  height: 28vw;
+  background: rgba(255, 128, 170, 0.28);
+}
+
+.glow-right {
+  inset: 10% 10% auto auto;
+  width: 22vw;
+  height: 22vw;
+  background: rgba(255, 210, 230, 0.22);
+}
+
+.card {
+  position: relative;
+  z-index: 2;
+  width: min(92vw, 560px);
+  padding: clamp(24px, 4vw, 40px);
+  text-align: center;
+  border: 1px solid rgba(255, 239, 244, 0.25);
+  border-radius: 32px;
+  background: rgba(42, 7, 29, 0.48);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.28);
+}
+
+.scene.is-active .card {
+  background: rgba(255, 248, 250, 0.22);
+  border-color: rgba(255, 255, 255, 0.32);
+}
+
+.love-flash {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0;
+  background:
+    radial-gradient(circle at center, rgba(255, 255, 255, 0.82), rgba(255, 216, 229, 0.24) 24%, rgba(255, 112, 159, 0) 65%);
+  transition: opacity 220ms ease;
+}
+
+.love-flash.is-visible {
+  opacity: 1;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.4rem, 7vw, 5rem);
+  line-height: 0.95;
+  text-wrap: balance;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.18);
+}
+
+.heart-button {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: min(72vw, 300px);
+  aspect-ratio: 1;
+  margin: 28px 0 18px;
+  border: 0;
+  cursor: pointer;
+  color: #fff7fa;
+  background: transparent;
+  box-shadow: 0 18px 40px rgba(194, 18, 77, 0.35);
+  transition: transform 180ms ease, filter 180ms ease;
+}
+
+.heart-button:hover {
+  transform: translateY(-3px) scale(1.02);
+  filter: brightness(1.04);
+}
+
+.heart-button:active {
+  transform: translateY(1px) scale(0.99);
+}
+
+.heart-button__shape {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 8px 18px rgba(255, 255, 255, 0.12))
+    drop-shadow(0 18px 40px rgba(194, 18, 77, 0.4));
+}
+
+.heart-button__shape path {
+  fill: url(#heart-gradient);
+}
+
+.heart-button span {
+  position: relative;
+  z-index: 1;
+  width: 62%;
+  font-size: clamp(1.1rem, 4vw, 1.75rem);
+  font-weight: 700;
+  line-height: 1.1;
+  text-shadow: 0 2px 8px rgba(64, 0, 18, 0.45);
+}
+
+.hint {
+  margin: 0;
+  font-size: 0.98rem;
+  opacity: 0.88;
+}
+
+.scene.is-active .hint {
+  opacity: 1;
+  color: #fff1f6;
+}
+
+.petal-layer {
+  z-index: 4;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.petal {
+  position: absolute;
+  left: var(--start-x);
+  top: var(--start-y);
+  width: var(--size);
+  height: calc(var(--size) * 0.72);
+  border-radius: 90% 15% 90% 15%;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.6), transparent 26%),
+    linear-gradient(135deg, hsl(var(--hue) 90% 78%), hsl(var(--hue) 92% 56%));
+  box-shadow: 0 0 18px rgba(255, 118, 168, 0.24);
+  transform-origin: center;
+  animation: petal-fly var(--duration) ease-out forwards;
+}
+
+@keyframes petal-fly {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(0deg) scale(0.7);
+  }
+  8% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--drift), calc(-1 * var(--arc))) rotate(var(--rotation)) scale(0.15);
+  }
+}
+
+@media (max-width: 640px) {
+  .card {
+    border-radius: 24px;
+  }
+
+  .heart-button {
+    width: min(76vw, 250px);
+  }
+}
