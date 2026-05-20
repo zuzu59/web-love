@@ -1,48 +1,53 @@
 # WEB-LOVE
 
-Mini site Vite romantique avec un gros coeur cliquable et une pluie de pétales.
+Mini site Vite romantique avec un gros coeur cliquable et une explosion de pétales de roses.
 
-## Apercu
+## Aperçu
 
-- La page affiche un message principal: `Je t'aime beaucoup`
-- Le bouton central prend la forme d'un coeur avec le texte `Mon amour !`
-- Au clic, l'arriere-plan change et une explosion de petales de roses apparait
+- L’écran d’accueil affiche un gros coeur avec le texte `Mon amour !`
+- Au clic, la page bascule sur un fond romantique avec le message `Je t'aime beaucoup`
+- Une explosion de pétales se déclenche au centre de l’écran
 
-## Demarrer
+## Démarrage
+
+Installer les dépendances puis lancer le serveur de développement :
 
 ```bash
 npm install
 npm run dev
 ```
 
-Puis ouvrir l'URL affichee par Vite, en general `http://localhost:5173/`.
+Ouvre ensuite l’URL fournie par Vite, en général `http://localhost:5173/`.
 
-## Construire pour la production
+## Build
+
+Créer la version de production :
 
 ```bash
 npm run build
 ```
 
-Pour lancer un apercu local du build:
+Prévisualiser le build localement :
 
 ```bash
 npm run preview
 ```
 
-## Arborescence
+## Fonctionnement
 
-- `index.html` : point d'entree HTML
-- `src/main.js` : rendu de la page et logique de l'animation
-- `src/style.css` : style general, coeur, fond et petales
+- Le clic sur le coeur déclenche un flash visuel
+- La scène d’accueil disparaît au profit de la nouvelle page
+- Des pétales sont générés en JavaScript avec des tailles et trajectoires variées
+- Les pétales sont automatiquement retirés après leur animation
 
-## Comportement
+## Structure
 
-- Un clic sur le coeur declenche un flash visuel
-- Une serie de petales est ensuite generee en JavaScript
-- Les petales sont supprimes automatiquement apres leur animation
+- `index.html` : point d’entrée HTML
+- `src/main.js` : rendu de l’interface et logique de l’animation
+- `src/style.css` : styles de l’accueil, de la nouvelle page et des pétales
 
-## Notes techniques
+## Notes
 
-- Projet base sur Vite en mode JavaScript vanille
-- Aucune dependance runtime
-- La structure est volontairement simple pour faciliter les ajustements
+- Projet basé sur Vite avec JavaScript vanille
+- Aucune dépendance runtime
+- Structure volontairement simple pour faciliter les ajustements visuels
