@@ -1,0 +1,249 @@
+:root {
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #fff;
+  background: #220913;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255, 182, 213, 0.18), transparent 25%),
+    radial-gradient(circle at 80% 0%, rgba(255, 86, 137, 0.16), transparent 22%),
+    linear-gradient(180deg, #1a0710 0%, #120408 100%);
+}
+
+.page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.home {
+  background:
+    radial-gradient(circle at top, rgba(255, 169, 199, 0.35), transparent 28%),
+    radial-gradient(circle at 50% 40%, rgba(255, 87, 137, 0.2), transparent 30%),
+    linear-gradient(180deg, #5e1130 0%, #2b0916 55%, #160307 100%);
+}
+
+.home::before,
+.home::after {
+  content: '';
+  position: absolute;
+  inset: auto;
+  border-radius: 50%;
+  filter: blur(20px);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.home::before {
+  width: 28rem;
+  height: 28rem;
+  background: rgba(255, 111, 158, 0.12);
+  top: -8rem;
+  left: -6rem;
+}
+
+.home::after {
+  width: 24rem;
+  height: 24rem;
+  background: rgba(255, 71, 121, 0.1);
+  bottom: -10rem;
+  right: -8rem;
+}
+
+.home-shell {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+}
+
+.eyebrow,
+.hint {
+  margin: 0;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  color: rgba(255, 232, 242, 0.72);
+}
+
+.hint {
+  letter-spacing: 0.08em;
+  color: rgba(255, 232, 242, 0.66);
+}
+
+.heart-button {
+  position: relative;
+  width: 320px;
+  height: 290px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-size: 1.55rem;
+  font-weight: 800;
+  background: transparent;
+  filter: drop-shadow(0 24px 40px rgba(0, 0, 0, 0.35));
+  transition: transform 0.22s ease, filter 0.22s ease;
+  display: grid;
+  place-items: center;
+}
+
+.heart-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.45), transparent 16%),
+    linear-gradient(180deg, #ff7aa6 0%, #ff447a 50%, #db195a 100%);
+  clip-path: path('M160 40 C160 10 112 0 82 20 C51 40 43 82 65 112 L160 205 L255 112 C277 82 269 40 238 20 C208 0 160 10 160 40 Z');
+  z-index: 0;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.heart-button::after {
+  content: '';
+  position: absolute;
+  inset: 12px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 35%, rgba(255, 255, 255, 0.16), transparent 55%);
+  filter: blur(10px);
+  z-index: 0;
+}
+
+.heart-button span {
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  top: 27%;
+  width: 170px;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  line-height: 1.1;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.28);
+}
+
+.heart-button:hover {
+  transform: translateY(-4px) scale(1.03);
+  filter: drop-shadow(0 30px 50px rgba(0, 0, 0, 0.42));
+}
+
+.heart-button:active {
+  transform: translateY(2px) scale(0.99);
+}
+
+.love {
+  background:
+    radial-gradient(circle at 50% 30%, rgba(255, 180, 205, 0.2), transparent 20%),
+    radial-gradient(circle at 50% 50%, rgba(255, 79, 135, 0.12), transparent 35%),
+    linear-gradient(180deg, #25070f 0%, #130306 55%, #090103 100%);
+}
+
+.love-scene {
+  position: relative;
+  width: min(900px, 100%);
+  height: min(720px, 100vh);
+  display: grid;
+  place-items: center;
+}
+
+.glow {
+  position: absolute;
+  width: min(78vw, 48rem);
+  height: min(78vw, 48rem);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 74, 129, 0.18) 0%, rgba(255, 74, 129, 0.08) 30%, transparent 68%);
+  filter: blur(10px);
+  animation: pulse 6s ease-in-out infinite;
+}
+
+.love-card {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 2rem 2.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.28);
+}
+
+.love-card .eyebrow {
+  margin-bottom: 0.8rem;
+}
+
+.love-card h1 {
+  margin: 0;
+  font-size: clamp(2.1rem, 6vw, 4.8rem);
+  line-height: 0.95;
+  text-shadow: 0 10px 35px rgba(0, 0, 0, 0.45);
+}
+
+.burst {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: 0;
+  height: 0;
+}
+
+.petal {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: var(--size);
+  height: calc(var(--size) * 1.5);
+  background:
+    radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.45), transparent 28%),
+    linear-gradient(180deg, #ffdbe4 0%, #ff759f 45%, #cf1d5b 100%);
+  border-radius: 100% 0 100% 0;
+  transform: translate(-50%, -50%) scale(0.2) rotate(0deg);
+  opacity: 0;
+  filter: blur(var(--blur));
+  animation: explode 1.8s cubic-bezier(.16,.84,.2,1) forwards;
+  animation-delay: var(--delay);
+  box-shadow: 0 0 14px rgba(255, 79, 135, 0.26);
+}
+
+@keyframes explode {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.15) rotate(0deg);
+  }
+  35% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y))) scale(1) rotate(var(--rotate));
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(0.98);
+    opacity: 0.75;
+  }
+  50% {
+    transform: scale(1.02);
+    opacity: 1;
+  }
+}
